@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">soccerBoard</string>
+    <string name="app_name">SoccerArticle</string>
+    <string name="title_activity_join">JoinActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- 여러군데 -->
+    <string name="BackBtnStr">뒤로가기</string>
+
+    <!-- splash String-->
+    <string name="splash_soccerString">오늘의 해외 축구</string>
+    <string name="splash_introString">축구 게시판 앱어플 입니다. </string>
+    <string name="splash_introString2">다양한 축구이야기를 공유해보세요.</string>
+
+
+    <!-- intro String-->
+    <string name="intro_joinBtnStr">회원가입 하러가기</string>
+    <string name="intro_LoginBtnStr">로그인 하러가기</string>
+
+    <!-- Join String-->
+    <string name="Join_emailHintStr">이메일을 입력해주세요.</string>
+    <string name="Join_passwordHintStr">비밀번호를 입력해주세요</string>
+    <string name="Join_passwordCheckHintStr">비밀번호 확인란을 입력해주세요.</string>
+    <string name="Join_nickNameHintStr">닉네임을 입력해주세요.</string>
+    <string name="Join_passwordPattern">* 비밀번호는 6자이상 12이하, 숫자와 문자를 조합해야합니다.</string>
 </resources>
