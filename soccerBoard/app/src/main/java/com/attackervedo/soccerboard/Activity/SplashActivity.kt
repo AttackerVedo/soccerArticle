@@ -30,5 +30,5 @@ class SplashActivity : AppCompatActivity() {
             },2000)
         }
 
-    }
+    }//onCreate
 }

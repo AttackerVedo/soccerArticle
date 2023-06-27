@@ -46,7 +46,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginEmail"
                 android:hint="@string/Join_emailHintStr"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"

@@ -5,4 +5,7 @@
     <color name="skyBlue">#87CEEB</color>
     <color name="darkGray">#555555</color>
     <color name="lightGray">#808080</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000ff</color>
+    <color name="orange">#ffa500</color>
 </resources>

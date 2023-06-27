@@ -3,17 +3,21 @@
 
     <group android:checkableBehavior="single">
 
-        <item android:id="@+id/access"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="접근성"/>
+        <item android:id="@+id/sideBarMyinfo"
+            android:icon="@drawable/baseline_sports_soccer_24"
+            android:title="내 정보"/>
 
-        <item android:id="@+id/email"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="이메일"/>
+        <item android:id="@+id/sideBarMyArticle"
+            android:icon="@drawable/baseline_sports_soccer_24"
+            android:title="내가 쓴 글 보기"/>
 
-        <item android:id="@+id/msg"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="메세지"/>
+        <item android:id="@+id/sideBarMyComment"
+            android:icon="@drawable/baseline_sports_soccer_24"
+            android:title="내가 쓴 댓글 보기"/>
+
+        <item android:id="@+id/sideBarLogout"
+            android:icon="@drawable/baseline_sports_soccer_24"
+            android:title="로그아웃"/>
 
     </group>
 

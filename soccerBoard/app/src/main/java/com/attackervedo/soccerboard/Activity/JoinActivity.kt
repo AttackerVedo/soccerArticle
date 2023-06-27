@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.attackervedo.soccerboard.CustomToast
+import com.attackervedo.soccerboard.FB.FBRef
 import com.attackervedo.soccerboard.MainActivity
 import com.attackervedo.soccerboard.R
+import com.attackervedo.soccerboard.dataModel.UserData
 import com.attackervedo.soccerboard.databinding.ActivityJoinBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -54,29 +57,36 @@ class JoinActivity : AppCompatActivity() {
         val nickname = binding.joinNickname.text.toString()
         var joinCheck = true
         if(email.isEmpty()){
-            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"이메일을 입력해주세요.")
+//            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         }else if(password.isEmpty()){
-            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"비밀번호를 입력해주세요.")
+//            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         }else if(passwordCheck.isEmpty()){
-            Toast.makeText(this, "비밀번호 확인란을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"비밀번호 확인란을 입력해주세요.")
+//            Toast.makeText(this, "비밀번호 확인란을 입력해주세요.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         }else if(nickname.isEmpty()){
-            Toast.makeText(this, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"닉네임을 입력해주세요.")
+//            Toast.makeText(this, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         }
         // 여기까지가 비어있는지 확인
         else if (!emailPattern.matcher(email).matches()) {
-            Toast.makeText(this, "이메일 양식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"이메일 양식이 올바르지 않습니다.")
+//            Toast.makeText(this, "이메일 양식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         } //이메일 유효성
         else if(!passwordPattern.matcher(password).matches()){
-            Toast.makeText(this, "비밀번호를 숫자,문자 포함의 6~12이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"비밀번호는 숫자,문자 포함의 6~12자리이여야 합니다.")
+//            Toast.makeText(this, "비밀번호를 숫자,문자 포함의 6~12이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         }
         else if(!password.equals(passwordCheck)){
-            Toast.makeText(this, "비밀번호 입력란과 비밀번호 확인란이 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+            CustomToast.showToast(this,"비밀번호와 비밀번호 확인란이 일치하지 않습니다.")
+//            Toast.makeText(this, "비밀번호 입력란과 비밀번호 확인란이 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
             joinCheck = false
         }
 
@@ -85,17 +95,29 @@ class JoinActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // 회원가입 성공
-                        Toast.makeText(this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show()
+                        CustomToast.showToast(this,"회원가입 되셨습니다.")
+//                        Toast.makeText(this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+                        val uid = user?.uid.toString()
+                        val userData = UserData(
+                            email,
+                            uid,
+                            nickname
+                        )
+                        FBRef.userInfo.child(uid).setValue(userData)
+
+
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
                         // 회원가입 실패
-                        Toast.makeText(this, "이미 사용중인 이메일 입니다.", Toast.LENGTH_SHORT).show()
+                        CustomToast.showToast(this,"이미 사용중인 이메일 입니다.")
+//                        Toast.makeText(this, "이미 사용중인 이메일 입니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
 
 
     }//creatUser
-}
+}//finish

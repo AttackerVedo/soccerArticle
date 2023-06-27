@@ -16,12 +16,12 @@ class IntroActivity : AppCompatActivity() {
         binding.introJoinBtn.setOnClickListener {
             val intent = Intent(this@IntroActivity, JoinActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
         binding.introLoginBtn.setOnClickListener {
             val intent = Intent(this@IntroActivity,LoginActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
-    }
-}
+    }//onCreate
+}//finish
