@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.attackervedo.soccerboard.Activity.ArticleDetailActivity
 import com.attackervedo.soccerboard.Activity.ArticleWriteActivity
 import com.attackervedo.soccerboard.Adapter.RvAdapter
 import com.attackervedo.soccerboard.CustomToast
@@ -44,7 +45,10 @@ class HomeFragment : Fragment() {//finish
 
         rvAdapter.itemClick = object : RvAdapter.ItemClick{
             override fun onClick(view: View, position: Int) {
-                CustomToast.showToast(requireContext(), "${articleList[position].title} 클릭됨")
+                var clickedArticleData = articleList[position]
+                val intent = Intent(requireContext(),ArticleDetailActivity::class.java)
+                intent.putExtra("clickedArticleData", clickedArticleData)
+                startActivity(intent)
             }
 
         }

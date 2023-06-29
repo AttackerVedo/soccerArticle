@@ -1,5 +1,7 @@
 package com.attackervedo.soccerboard.dataModel
 
+import java.io.Serializable
+
 data class ArticleData(
     val title :String? = null,
     val content : String? = null,
@@ -7,5 +9,7 @@ data class ArticleData(
     val uid : String? = null,
     val time : String? = null,
     val hit:Long? = 0L,
-    val comment :Int? = 0
-)
+    val comment :Int? = 0,
+    val articleKey : String? = null
+
+) : Serializable
