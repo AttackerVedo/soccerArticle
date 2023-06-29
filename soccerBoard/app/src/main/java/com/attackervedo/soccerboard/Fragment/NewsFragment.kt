@@ -27,7 +27,6 @@ class NewsFragment : Fragment(){
 
         binding = FragmentNewsBinding.inflate(layoutInflater)
         //클릭이벤트여기서하면됌
-
         return binding.root
     }//onCreateView
 

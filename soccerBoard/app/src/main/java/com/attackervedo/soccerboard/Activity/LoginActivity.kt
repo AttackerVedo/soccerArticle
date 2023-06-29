@@ -3,10 +3,8 @@ package com.attackervedo.soccerboard.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.attackervedo.soccerboard.CustomToast
 import com.attackervedo.soccerboard.MainActivity
-import com.attackervedo.soccerboard.R
 import com.attackervedo.soccerboard.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException

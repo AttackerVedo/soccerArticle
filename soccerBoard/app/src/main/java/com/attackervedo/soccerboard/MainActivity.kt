@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.attackervedo.soccerboard.Activity.IntroActivity
+import com.attackervedo.soccerboard.Activity.MyInfoActivity
 import com.attackervedo.soccerboard.Fragment.HomeFragment
 import com.attackervedo.soccerboard.Fragment.NewsFragment
 import com.attackervedo.soccerboard.databinding.ActivityMainBinding
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             val homeFragmentTransaction = supportFragmentManager.beginTransaction()
             homeFragmentTransaction.replace(R.id.mainFragment, HomeFragment())
             homeFragmentTransaction.commit()
-            binding.mainStatusArticle.setBackgroundColor(ContextCompat.getColor(this,R.color.blue))
+            binding.mainStatusArticle.setBackgroundColor(ContextCompat.getColor(this,R.color.black))
             binding.mainStatusNews.setBackgroundColor(ContextCompat.getColor(this,R.color.white))
 
         }// 게시판(홈)눌렀을때
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             newsFragmentTransaction.replace(R.id.mainFragment, NewsFragment())
             newsFragmentTransaction.commit()
             binding.mainStatusArticle.setBackgroundColor(ContextCompat.getColor(this,R.color.white))
-            binding.mainStatusNews.setBackgroundColor(ContextCompat.getColor(this,R.color.blue))
+            binding.mainStatusNews.setBackgroundColor(ContextCompat.getColor(this,R.color.black))
         }// 뉴스(링크)눌렀을떄
         binding.mainYoutubeBtn.setOnClickListener {
             showDialog()
@@ -110,7 +111,10 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.sideBarMyinfo ->{}
+            R.id.sideBarMyinfo ->{
+                val intent = Intent(this@MainActivity, MyInfoActivity::class.java)
+                startActivity(intent)
+            }
             R.id.sideBarMyArticle ->{}
             R.id.sideBarMyComment ->{}
             R.id.sideBarLogout ->{ logout() }
