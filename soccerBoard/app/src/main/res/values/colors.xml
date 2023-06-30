@@ -3,11 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="skyBlue">#87CEEB</color>
-    <color name="darkGray">#555555</color>
+    <color name="darkGray">#404040</color>
     <color name="lightGray">#808080</color>
     <color name="green">#008000</color>
     <color name="blue">#0000ff</color>
     <color name="orange">#ffa500</color>
     <color name="realLigthGray">#d3d3d3</color>
     <color name="off_white">#F5F5F5</color>
+    <color name="red">#F44336</color>
+    <color name="purple">#4C00D5</color>
 </resources>

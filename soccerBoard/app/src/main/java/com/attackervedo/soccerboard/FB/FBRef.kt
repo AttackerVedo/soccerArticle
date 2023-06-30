@@ -10,6 +10,7 @@ class FBRef {
         val database = Firebase.database
         val userInfoRef = database.getReference("userInfo")
         val articleRef = database.getReference("article")
+        val articleCommentRef = database.getReference("articleComment")
 
     }
 }

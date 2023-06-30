@@ -22,7 +22,6 @@ import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {//finish
 
-
     private lateinit var binding : FragmentHomeBinding
     private lateinit var rvAdapter : RvAdapter
     private val articleList = mutableListOf<ArticleData>()

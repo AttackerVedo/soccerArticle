@@ -107,7 +107,7 @@ class ArticleWriteActivity : AppCompatActivity() {
         val title = binding.writeTitleInputEditText.text.toString()
         val content = binding.writeContentInputEditText.text.toString()
         val uid = FButils.getUid()
-        val time = FButils.getTime()
+        val writeTime = FButils.getTime()
 
         val key = FBRef.articleRef.push().key.toString()
 
@@ -119,7 +119,8 @@ class ArticleWriteActivity : AppCompatActivity() {
                     content,
                     nickname,
                     uid,
-                    time,
+                    writeTime,
+                    "",
                 0,
                 0,
                 key)

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_marginRight="80dp"
+        android:id="@+id/itemComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font2"
+        android:padding="10dp"
+        android:text="아스날 우승이어떻게 가능하냐?"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/itemCommentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2013-02-01 11:20:40"
+        app:layout_constraintStart_toStartOf="@+id/itemComment"
+        app:layout_constraintTop_toBottomOf="@+id/itemComment" />
+
+    <TextView
+        android:layout_marginStart="5dp"
+        android:id="@+id/itemCommentNick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="베도"
+        app:layout_constraintStart_toEndOf="@+id/itemCommentTime"
+        app:layout_constraintTop_toBottomOf="@+id/itemComment" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="394dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@color/darkGray"
+        app:layout_constraintStart_toStartOf="@+id/itemComment"
+        app:layout_constraintTop_toBottomOf="@+id/itemCommentNick" />
+
+    <ImageView
+        android:id="@+id/commentDeleteBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        android:src="@drawable/baseline_delete_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemComment"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,9 +7,10 @@ data class ArticleData(
     val content : String? = null,
     val nickname:String? = null,
     val uid : String? = null,
-    val time : String? = null,
+    val writeTime : String? = null,
+    val updateTime: String? = null,
     val hit:Long? = 0L,
     val comment :Int? = 0,
     val articleKey : String? = null
-
 ) : Serializable
+

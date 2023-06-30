@@ -28,12 +28,12 @@ class FButils {
             return dataFormat
         }
 
-        suspend fun getMyNick(): String = withContext(Dispatchers.IO) {
-            val uid = getUid()
-            val snapshot = FBRef.userInfoRef.child(uid).get().await()
-            val userData = snapshot.getValue(UserData::class.java)
-            userData?.userNickname.toString()
-        }
+//        suspend fun getMyNick(): String = withContext(Dispatchers.IO) {
+//            val uid = getUid()
+//            val snapshot = FBRef.userInfoRef.child(uid).get().await()
+//            val userData = snapshot.getValue(UserData::class.java)
+//            userData?.userNickname.toString()
+//        }
 
     }
 }
