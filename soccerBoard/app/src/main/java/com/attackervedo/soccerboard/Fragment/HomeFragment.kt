@@ -48,6 +48,21 @@ class HomeFragment : Fragment() {//finish
                 val intent = Intent(requireContext(),ArticleDetailActivity::class.java)
                 intent.putExtra("clickedArticleData", clickedArticleData)
                 startActivity(intent)
+                // 클릭된 article 조회수 증가
+                var clickedArticleDataHit = clickedArticleData.hit?.plus(1)
+                FBRef.articleRef
+                    .child(clickedArticleData.articleKey.toString())
+                    .setValue(ArticleData(
+                        clickedArticleData.title,
+                        clickedArticleData.content,
+                        clickedArticleData.nickname,
+                        clickedArticleData.uid,
+                        clickedArticleData.writeTime,
+                        clickedArticleData.updateTime,
+                        clickedArticleDataHit,
+                        clickedArticleData.comment,
+                        clickedArticleData.articleKey
+                    ))
             }
 
         }
