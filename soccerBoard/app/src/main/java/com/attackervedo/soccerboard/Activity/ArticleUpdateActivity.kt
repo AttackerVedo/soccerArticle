@@ -1,12 +1,15 @@
 package com.attackervedo.soccerboard.Activity
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import com.attackervedo.soccerboard.CustomToast
 import com.attackervedo.soccerboard.FB.FBRef
@@ -56,25 +59,39 @@ class ArticleUpdateActivity : AppCompatActivity() {
     }//onCreate
 
     private fun UpdateAction(articleData:ArticleData) {
-        FBRef.articleRef
-            .child(articleData.articleKey.toString())
-            .setValue(ArticleData(
-                binding.updateTitleInputEditText.text.toString(),
-                binding.updateContentInputEditText.text.toString(),
-                articleData.nickname,
-                articleData.uid,
-                articleData.writeTime,
-                FButils.getTime(),
-                articleData.hit,
-                articleData.comment,
-                articleData.articleKey
-            ))
+        val dialogBuilder = AlertDialog.Builder(this)
+        dialogBuilder.setTitle("글 수정 안내문")
+        dialogBuilder.setMessage("글을 수정하시겠습니까?")
 
-        imageUpload(articleData.articleKey.toString())
-        CustomToast.showToast(this,"글이 수정되었습니다.")
-        val intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        dialogBuilder.setPositiveButton("네") { dialog: DialogInterface, which: Int ->
+            // "네" 버튼을 클릭한 경우 처리할 내용
+            FBRef.articleRef
+                .child(articleData.articleKey.toString())
+                .setValue(ArticleData(
+                    binding.updateTitleInputEditText.text.toString(),
+                    binding.updateContentInputEditText.text.toString(),
+                    articleData.nickname,
+                    articleData.uid,
+                    articleData.writeTime,
+                    FButils.getTime(),
+                    articleData.hit,
+                    articleData.comment,
+                    articleData.articleKey
+                ))
+
+            imageUpload(articleData.articleKey.toString())
+            CustomToast.showToast(this,"글이 수정되었습니다.")
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        dialogBuilder.setNegativeButton("아니요") { dialog: DialogInterface, which: Int ->
+            // "아니요" 버튼을 클릭한 경우 처리할 내용
+            dialog.dismiss()
+        }
+
+        val dialog = dialogBuilder.create()
+        dialog.show()
     }
 
     private fun getArticleImage(aritcleKey:String) {

@@ -1,11 +1,14 @@
 package com.attackervedo.soccerboard.Activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.appcompat.app.AlertDialog
 import com.attackervedo.soccerboard.CustomToast
 import com.attackervedo.soccerboard.FB.FBRef
 import com.attackervedo.soccerboard.FB.FButils
@@ -109,25 +112,48 @@ class ArticleWriteActivity : AppCompatActivity() {
         val uid = FButils.getUid()
         val writeTime = FButils.getTime()
 
-        val key = FBRef.articleRef.push().key.toString()
+        val dialogBuilder = AlertDialog.Builder(this)
+        dialogBuilder.setTitle("글 작성 안내문")
+        dialogBuilder.setMessage("글을 작성하시겠습니까?")
+        if(title.equals("")){
+            CustomToast.showToast(this,"제목을 입력해주세요")
+        }else if(content.equals("")){
+            CustomToast.showToast(this,"내용을 입력해주세요")
+        }else if(title.length > 30){
+            CustomToast.showToast(this,"제목을 30자 이내로 입력해 주세요.")
+        }else if(content.length > 1000){
+            CustomToast.showToast(this,"내용을 1000자 이내로 입력해 주세요.")
+        }else{
+            dialogBuilder.setPositiveButton("네") { dialog: DialogInterface, which: Int ->
+                // "네" 버튼을 클릭한 경우 처리할 내용
+                val key = FBRef.articleRef.push().key.toString()
+                FBRef.articleRef
+                    .child(key)
+                    .setValue(
+                        ArticleData(
+                            title,
+                            content,
+                            nickname,
+                            uid,
+                            writeTime,
+                            "",
+                            0,
+                            0,
+                            key)
+                    )
+                imageUpload(key)
+                CustomToast.showToast(this@ArticleWriteActivity, "글이 작성되었습니다.")
+                finish()
 
-        FBRef.articleRef
-            .child(key)
-            .setValue(
-                ArticleData(
-                    title,
-                    content,
-                    nickname,
-                    uid,
-                    writeTime,
-                    "",
-                0,
-                0,
-                key)
-            )
-        imageUpload(key)
-        CustomToast.showToast(this@ArticleWriteActivity, "글이 작성되었습니다.")
-        finish()
+            }
+            dialogBuilder.setNegativeButton("아니요") { dialog: DialogInterface, which: Int ->
+                // "아니요" 버튼을 클릭한 경우 처리할 내용
+                dialog.dismiss()
+            }
+
+            val dialog = dialogBuilder.create()
+            dialog.show()
+        }
     }
 
     private fun getMyNick() {

@@ -1,15 +1,21 @@
 package com.attackervedo.soccerboard.Activity
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.attackervedo.soccerboard.Adapter.CommentRvAdapter
@@ -98,6 +104,12 @@ class ArticleDetailActivity : AppCompatActivity() {
         binding.detailCommentRecyclerView.adapter = commentRvAdapter
         binding.detailCommentRecyclerView.layoutManager = LinearLayoutManager(this)
         getArticleCommentData()
+
+        binding.detailImage.setOnClickListener {
+            val intent = Intent(this, ShowPhotoActivity::class.java)
+            intent.putExtra("imageKey", key)
+            startActivity(intent)
+        }
 
     }//onCreate
 
@@ -245,6 +257,9 @@ class ArticleDetailActivity : AppCompatActivity() {
         }
         FBRef.articleCommentRef.child(key).addValueEventListener(postListener)
     }
+
+
+
 
 
 }//finish

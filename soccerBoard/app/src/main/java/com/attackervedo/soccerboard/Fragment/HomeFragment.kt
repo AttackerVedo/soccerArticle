@@ -67,8 +67,49 @@ class HomeFragment : Fragment() {//finish
 
         }
 
+        binding.homeFragFindBtn.setOnClickListener {
+            var keyword = binding.homeFragFindEdt.text.toString()
+            if(keyword.equals("")){
+                CustomToast.showToast(requireContext(), "검색어란이 비어있습니다.")
+            }else{
+                findAction(keyword)
+                if(articleList.isEmpty()){
+                    CustomToast.showToast(requireContext(),"해당글이 존재하지 않습니다.")
+                }
+            }
+        }
+
+        binding.homeFragFindResetBtn.setOnClickListener {
+            getArticleData()
+        }
+
+
         return binding.root
     }//onCreateView
+
+    private fun findAction(keyword:String) {
+
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                articleList.clear()
+
+                for(dataModel in dataSnapshot.children){
+                    val articleData = dataModel.getValue(ArticleData::class.java)
+                    Log.e("ArticleData", articleData.toString())
+                    if(articleData?.title?.contains(keyword)!!){
+                        articleList.add(articleData)
+                    }
+                }
+                articleList.reverse()
+                rvAdapter.notifyDataSetChanged()
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+            }
+        }
+        FBRef.articleRef.addValueEventListener(postListener)
+
+    }
 
     private fun moveWrite(){
         val intent = Intent(requireContext(),ArticleWriteActivity::class.java)
