@@ -12,7 +12,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.attackervedo.soccerboard.Activity.IntroActivity
 import com.attackervedo.soccerboard.Activity.MyArticleListActivity
-import com.attackervedo.soccerboard.Activity.MyCommentActivity
 import com.attackervedo.soccerboard.Activity.MyInfoActivity
 import com.attackervedo.soccerboard.Fragment.HomeFragment
 import com.attackervedo.soccerboard.Fragment.NewsFragment
@@ -119,10 +118,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             }
             R.id.sideBarMyArticle ->{
                 val intent = Intent(this@MainActivity, MyArticleListActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.sideBarMyComment ->{
-                val intent = Intent(this@MainActivity,MyCommentActivity::class.java)
                 startActivity(intent)
             }
             R.id.sideBarLogout ->{ logout() }

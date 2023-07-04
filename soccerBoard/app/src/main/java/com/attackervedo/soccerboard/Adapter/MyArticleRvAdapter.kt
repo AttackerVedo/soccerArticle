@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.attackervedo.soccerboard.R
 import com.attackervedo.soccerboard.dataModel.ArticleData
+import org.w3c.dom.Text
 
 class MyArticleRvAdapter(val context: Context,
                          val itemList: MutableList<ArticleData>) :RecyclerView.Adapter<MyArticleRvAdapter.viewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.my_comment_item,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_list,parent,false)
         return viewHolder(view)
     }
 

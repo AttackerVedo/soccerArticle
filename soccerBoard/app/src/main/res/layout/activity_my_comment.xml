@@ -4,12 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.youtubeWebViewActivity">
-
-    <WebView
-        android:id="@+id/youtubeWebView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+    tools:context=".Activity.MyCommentActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
