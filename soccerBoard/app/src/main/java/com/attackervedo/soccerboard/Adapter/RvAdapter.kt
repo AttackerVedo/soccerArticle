@@ -23,7 +23,7 @@ class RvAdapter(val itemList: MutableList<ArticleData>) : RecyclerView.Adapter<R
     }
 
     interface ItemClick{
-        fun onClick(view:View , position: Int)
+        fun onClick(viw:View , position: Int)
     }
 
     var itemClick: ItemClick? = null
@@ -50,7 +50,6 @@ class RvAdapter(val itemList: MutableList<ArticleData>) : RecyclerView.Adapter<R
         val articleHit = itemView.findViewById<TextView>(R.id.itemHitValue)
         val articleComment = itemView.findViewById<TextView>(R.id.itemCommentValue)
         val myUid = FButils.getUid()
-
 
         @SuppressLint("ResourceAsColor")
         fun bindItems(item: ArticleData){

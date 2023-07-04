@@ -68,8 +68,6 @@ class ArticleDetailActivity : AppCompatActivity() {
         binding.detailNickname.text = "작성자 : ${articleData.nickname.toString()}"
 
         binding.detailBackBtn.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
             finish()
         }
 

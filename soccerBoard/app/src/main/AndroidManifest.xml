@@ -16,6 +16,12 @@
         android:theme="@style/Theme.SoccerBoard"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.MyCommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MyArticleListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ShowPhotoActivity"
             android:exported="false" />
         <activity
@@ -30,12 +36,12 @@
         <activity
             android:name=".Activity.MyInfoActivity"
             android:exported="false" />
-
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
