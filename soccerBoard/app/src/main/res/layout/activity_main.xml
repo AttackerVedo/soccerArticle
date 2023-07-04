@@ -40,9 +40,9 @@
                 android:layout_height="wrap_content"
                 android:text="SoccerArticle"
                 android:textStyle="bold"
-                android:fontFamily="@font/font2"
+                android:fontFamily="@font/font3"
                 android:textColor="@color/lightGray"
-                android:textSize="45sp"/>
+                android:textSize="40sp"/>
 
 
 
@@ -115,25 +115,25 @@
                 android:id="@+id/mainHomeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/font2"
+                android:fontFamily="@font/font3"
                 android:layout_weight="1"
-                android:textSize="35sp"
+                android:textSize="25sp"
                 android:text="게시판(홈)"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mainNewBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="35sp"
+                android:textSize="25sp"
                 android:text="뉴스(링크)"
-                android:fontFamily="@font/font2"
+                android:fontFamily="@font/font3"
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/mainYoutubeBtn"
                 android:text="영상(유튜브)"
-                android:textSize="35sp"
-                android:fontFamily="@font/font2"
+                android:textSize="23sp"
+                android:fontFamily="@font/font3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>

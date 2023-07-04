@@ -28,10 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/font2"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/font3"
             android:text="원하는 뉴스 사이트로 이동하세요!"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="링크를 클릭하면 이동됩니다 !"
-        android:fontFamily="@font/font2"
+        android:fontFamily="@font/font3"
         android:textSize="25sp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"

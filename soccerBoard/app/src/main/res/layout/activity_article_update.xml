@@ -62,10 +62,10 @@
                     android:id="@+id/updateTitleInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:fontFamily="@font/font2"
+                    android:fontFamily="@font/font3"
                     android:hint="제목을 입력해주세요"
                     android:inputType="text"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -96,10 +96,10 @@
                     android:id="@+id/updateContentInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:fontFamily="@font/font2"
+                    android:fontFamily="@font/font3"
                     android:hint="내용을 입력해주세요"
                     android:inputType="text"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
             </com.google.android.material.textfield.TextInputLayout>

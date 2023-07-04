@@ -121,15 +121,16 @@
             </LinearLayout>
 
             <TextView
+                android:padding="10dp"
                 android:id="@+id/detailTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/off_white"
-                android:fontFamily="@font/font2"
+                android:fontFamily="@font/font3"
                 android:paddingStart="5dp"
                 android:text="글 제목 부분입니다."
-                android:textSize="35sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -141,12 +142,13 @@
 
 
             <TextView
+                android:padding="10dp"
                 android:id="@+id/detailContent"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/off_white"
-                android:fontFamily="@font/font2"
+                android:fontFamily="@font/font3"
                 android:paddingStart="5dp"
                 android:text="글내용부분입니다."
                 android:textSize="30sp" />

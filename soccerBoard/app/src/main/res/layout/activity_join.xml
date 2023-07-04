@@ -26,11 +26,11 @@
                 android:layout_height="80dp"
                 android:src="@drawable/baseline_sports_soccer_24"/>
             <TextView
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font2"
-                android:textSize="50sp"
+                android:fontFamily="@font/font3"
+                android:textSize="35sp"
                 android:gravity="center"
                 android:text="회원가입 화면입니다."/>
 
