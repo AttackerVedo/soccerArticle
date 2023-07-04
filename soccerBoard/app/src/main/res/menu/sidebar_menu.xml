@@ -16,6 +16,10 @@
             android:icon="@drawable/baseline_sports_soccer_24"
             android:title="로그아웃"/>
 
+        <item android:id="@+id/sideBarUserOut"
+            android:icon="@drawable/baseline_sports_soccer_24"
+            android:title="회원탈퇴"/>
+
     </group>
 
 </menu>
