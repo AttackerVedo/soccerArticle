@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
             android:hint="검색어를 입력해주세요(제목기준)"
             android:textSize="16sp" />
 
@@ -29,13 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="0.15"
             android:src="@drawable/baseline_find_in_page_24" />
 
         <ImageView
             android:id="@+id/homeFragFindResetBtn"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.15"
             android:src="@drawable/baseline_reset_tv_24"
             android:layout_height="match_parent"/>
     </LinearLayout>
