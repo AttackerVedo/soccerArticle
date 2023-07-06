@@ -129,43 +129,45 @@ class ArticleDetailActivity : AppCompatActivity() {
                     FButils.getUid()
                 ))
             //게시글의 댓글수 증가
-            var currentCommentValue =getCommentValue()
-
-            currentCommentValue++
-//            Log.e("코멘트", commentValue.toString())
-            FBRef.articleRef
-                .child(article.articleKey.toString())
-                .setValue(ArticleData(
-                    article.title,
-                    article.content,
-                    article.nickname,
-                    article.uid,
-                    article.writeTime,
-                    article.updateTime,
-                    article.hit,
-                    currentCommentValue,
-                    article.articleKey
-                ))
+            getCommentValue { currentCommentValue ->
+                val updatedCommentValue = currentCommentValue + 1
+                Log.e("currentCommentValue", updatedCommentValue.toString())
+                FBRef.articleRef
+                    .child(article.articleKey.toString())
+                    .setValue(
+                        ArticleData(
+                            article.title,
+                            article.content,
+                            article.nickname,
+                            article.uid,
+                            article.writeTime,
+                            article.updateTime,
+                            article.hit,
+                            updatedCommentValue,
+                            article.articleKey
+                        )
+                    )
+            }
 
             CustomToast.showToast(this,"댓글이 입력되었습니다.")
             binding.detailComment.setText("")
         }
     }
 
-    private fun getCommentValue():Int{
-
-        var commentValue = 0
+    private fun getCommentValue(callback: (Int) -> Unit) {
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-            val articleData = dataSnapshot.getValue(ArticleData::class.java)
-                commentValue = articleData!!.comment!!
+                val articleData = dataSnapshot.getValue(ArticleData::class.java)
+                val commentValue = articleData?.comment ?: 0
+                callback(commentValue)
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
+                // Handle cancellation error if needed
             }
         }
-        FBRef.articleRef.child(key).addListenerForSingleValueEvent(postListener)
-        return commentValue
 
+        FBRef.articleRef.child(key).addListenerForSingleValueEvent(postListener)
     }
 
     private fun deleteArticle() {
