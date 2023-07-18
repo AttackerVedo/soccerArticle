@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             layout_drawer.openDrawer(GravityCompat.START)
         }
 
-        binding.sideBar.setNavigationItemSelectedListener(this)
+        binding.sideBar.setNavigationItemSelectedListener(this) //네비게이션 메뉴 아이템에 클릭 속성 부여
 
     }//onCreate
 
@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
     }
 
+    //백버튼 설정
     override fun onBackPressed() {
         if (layout_drawer.isDrawerOpen(GravityCompat.START)) {
             layout_drawer.closeDrawers()
