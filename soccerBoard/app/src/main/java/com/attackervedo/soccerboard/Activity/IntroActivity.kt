@@ -16,7 +16,6 @@ class IntroActivity : AppCompatActivity() {
         binding.introJoinBtn.setOnClickListener {
             val intent = Intent(this@IntroActivity, JoinActivity::class.java)
             startActivity(intent)
-
         }
         binding.introLoginBtn.setOnClickListener {
             val intent = Intent(this@IntroActivity,LoginActivity::class.java)

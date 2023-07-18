@@ -136,8 +136,4 @@ class HomeFragment : Fragment() {//finish
         }
         FBRef.articleRef.addValueEventListener(postListener)
     }
-
-
-
-
 }

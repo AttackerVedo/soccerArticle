@@ -63,9 +63,11 @@ class RvAdapter(val itemList: MutableList<ArticleData>) : RecyclerView.Adapter<R
                 val colorPurple = itemView.context.resources.getColor(R.color.purple)
                 articleWriter.setTextColor(colorPurple)
                 articleTitle.setTextColor(colorPurple)
+            }else{
+                val colorBlack = itemView.context.resources.getColor(R.color.black)
+                articleWriter.setTextColor(colorBlack)
+                articleTitle.setTextColor(colorBlack)
             }
-
         }
-
     }
 }
