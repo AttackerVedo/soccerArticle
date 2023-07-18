@@ -73,7 +73,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
         getArticleImage(key)
 
-        binding.detailDeleteBtn.setOnClickListener {
+        binding.deleteDeleteBtn.setOnClickListener {
             deleteArticle()
         }
 
